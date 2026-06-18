@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HRVN — Vision, Numbers &amp; Team Map</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1c1a17;
+  --ink-soft:#4a443d;
+  --cream:#fbf8f3;
+  --cream-2:#f4eee3;
+  --gold:#b08642;
+  --gold-light:#c9a35e;
+  --line:#e3d9c6;
+  --shadow:0 30px 60px -25px rgba(40,30,12,.35);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Montserrat',sans-serif;
+  color:var(--ink);
+  background:var(--cream);
+  line-height:1.75;
+  font-weight:300;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+h1,h2,h3,h4{font-family:'Cormorant Garamond',serif;font-weight:500;line-height:1.1}
+.wrap{max-width:1120px;margin:0 auto;padding:0 32px}
+.gold{color:var(--gold)}
+.rainbow-bar{height:5px;width:100%;
+  background:linear-gradient(90deg,#e0556b,#e08a3c,#e7c14c,#5fae6b,#4f8fc0,#9a6cb8);}
+.kicker{font-family:'Montserrat',sans-serif;font-weight:500;font-size:12px;
+  letter-spacing:.42em;text-transform:uppercase;color:var(--gold);}
+
+/* ---------- HERO ---------- */
+.hero{position:relative;min-height:92vh;display:flex;align-items:center;
+  color:#fdfbf6;text-align:center;overflow:hidden;}
+.hero-bg{position:absolute;inset:0;
+  background:
+    radial-gradient(circle at 30% 20%, rgba(176,134,66,.28), transparent 55%),
+    radial-gradient(circle at 80% 80%, rgba(176,134,66,.18), transparent 55%),
+    linear-gradient(160deg,#1c1a17,#100f0d 60%,#1c1a17);}
+.hero-inner{position:relative;z-index:2;width:100%;padding:110px 32px}
+.hero .kicker{color:var(--gold-light)}
+.hero h1{font-size:clamp(56px,11vw,140px);font-weight:400;letter-spacing:.04em;margin:.2em 0 .1em}
+.hero .role{font-size:clamp(14px,2.2vw,19px);letter-spacing:.3em;text-transform:uppercase;
+  font-weight:300;color:#efe4cf}
+.hero .tagline{font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:clamp(20px,3.2vw,30px);margin-top:34px;color:#fbf3e2;font-weight:300;max-width:760px;
+  margin-left:auto;margin-right:auto}
+.hero .meta{margin-top:46px;font-size:12px;letter-spacing:.22em;text-transform:uppercase;
+  color:#d9ccb2;display:flex;gap:24px;justify-content:center;flex-wrap:wrap}
+.scrolldown{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);z-index:3;
+  font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:#e9ddc4;opacity:.9}
+.scrolldown span{display:block;width:1px;height:40px;background:linear-gradient(var(--gold-light),transparent);
+  margin:12px auto 0}
+
+/* ---------- SECTION SHELL ---------- */
+section{padding:96px 0}
+.sec-head{text-align:center;max-width:780px;margin:0 auto 56px}
+.sec-head h2{font-size:clamp(32px,5vw,56px);margin:14px 0 0}
+.sec-head p{margin-top:18px;color:var(--ink-soft);font-size:16px}
+.divider{width:64px;height:2px;background:var(--gold);margin:0 auto}
+
+/* ---------- VISION / MISSION ---------- */
+.vm{background:var(--cream-2)}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.panel{background:var(--cream);border:1px solid var(--line);border-radius:6px;padding:38px 36px;
+  box-shadow:0 20px 50px -35px rgba(40,30,12,.4)}
+.panel .panel-sub{font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+.panel h3{font-size:27px;margin-bottom:10px}
+.panel p{font-size:15.5px;color:var(--ink-soft)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.chip{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);
+  background:var(--cream-2);border:1px solid var(--line);padding:6px 12px;border-radius:30px}
+.chip.no{color:#a25b5b;border-color:#e2c6c6;background:#fbf1f1}
+.chip.yes{color:#5a8f6a;border-color:#cfe0d3;background:#f1f8f2}
+.thesis{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(20px,2.6vw,26px);
+  color:var(--ink);max-width:880px;margin:0 auto;text-align:center;line-height:1.4}
+
+/* ---------- STATS ---------- */
+.stats{background:var(--ink);color:#f4ecdb;position:relative}
+.stats .sec-head h2{color:#fbf3e1}
+.stats .sec-head p{color:#c8bca2}
+.stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center}
+.stat{padding:24px 10px;border:1px solid rgba(201,163,94,.22);border-radius:4px;
+  background:linear-gradient(180deg,rgba(255,255,255,.02),transparent)}
+.stat .num{font-family:'Cormorant Garamond',serif;font-size:clamp(40px,5.6vw,58px);
+  color:var(--gold-light);line-height:1;font-weight:500}
+.stat .lbl{margin-top:12px;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:#d7cbb1}
+.stat .sub{font-size:11px;color:#9c917c;margin-top:4px;letter-spacing:.02em;text-transform:none}
+
+/* ---------- HRVN SOUL ---------- */
+.soul{background:var(--ink);color:#f4ecdb;border-top:1px solid rgba(201,163,94,.18)}
+.soul .sec-head h2{color:#fbf3e1}
+.soul .sec-head p{color:#c8bca2}
+.soul-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:8px}
+.soul-card{background:rgba(255,255,255,.04);border:1px solid rgba(201,163,94,.3);border-radius:6px;
+  padding:34px 26px;text-align:center}
+.soul-card .letter{font-family:'Cormorant Garamond',serif;font-size:60px;color:var(--gold-light);line-height:1}
+.soul-card h4{font-size:23px;color:#fbf3e1;margin:8px 0 12px}
+.soul-card p{font-size:13.5px;color:#ddd0b6}
+.soul-card .sline{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14.5px;color:#b6a98e;margin-top:12px}
+.soul .arc{margin-top:54px;text-align:center;font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:clamp(19px,2.6vw,25px);color:#f3e9d3;max-width:880px;margin-left:auto;margin-right:auto;line-height:1.5}
+
+/* ---------- TEAM MAP ---------- */
+.team{background:var(--cream)}
+.team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:22px}
+.team-card{background:var(--cream-2);border:1px solid var(--line);border-radius:8px;padding:30px 28px;
+  display:flex;flex-direction:column}
+.team-card h3{font-size:27px;color:var(--ink)}
+.team-card .t-role{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-top:6px}
+.team-card .t-section{margin-top:18px}
+.team-card .t-label{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:8px}
+.team-card .hd-line{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16.5px;color:var(--ink-soft)}
+.team-card .t-contrib{margin-top:16px;font-size:13.5px;color:var(--ink-soft);border-left:3px solid var(--gold);padding-left:14px}
+.tbd{opacity:.55;font-style:italic}
+
+/* ---------- NEXT STEPS ---------- */
+.next{background:var(--cream-2)}
+.deliv-panel{margin-top:0}
+.deliv{display:grid;grid-template-columns:auto 1fr auto;gap:22px;align-items:center;
+  padding:20px 0;border-bottom:1px dashed var(--line)}
+.deliv:last-child{border-bottom:none}
+.deliv .dmark{font-family:'Cormorant Garamond',serif;font-size:26px;color:var(--gold-light);min-width:30px}
+.deliv .dname{font-family:'Cormorant Garamond',serif;font-size:21px;color:var(--ink);line-height:1.2}
+.deliv .ddesc{font-size:13.5px;color:var(--ink-soft);margin-top:2px}
+.deliv .darea{font-size:10px;letter-spacing:.12em;text-transform:uppercase;
+  border-radius:30px;padding:6px 13px;white-space:nowrap;text-align:center}
+.darea.critical{color:#fff;background:#b4544f;border:1px solid #b4544f}
+.darea.pending{color:var(--gold);border:1px solid var(--line)}
+.darea.gap{color:#7a6a3c;background:#f3ecd8;border:1px solid #e2d4a8}
+
+/* ---------- TRACKS ---------- */
+.tracks{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:48px}
+.track{background:var(--cream);border:1px solid var(--line);border-radius:6px;padding:32px 30px}
+.track .tk{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.track h4{font-size:25px;margin:8px 0 12px}
+.track ul{padding-left:18px;color:var(--ink-soft);font-size:14px}
+.track li{margin-bottom:8px}
+
+/* ---------- CLOSING ---------- */
+.closing{background:var(--ink);color:#f4ecdb;text-align:center}
+.closing .kicker{color:var(--gold-light)}
+.closing blockquote{font-family:'Cormorant Garamond',serif;font-size:clamp(24px,4vw,42px);
+  font-weight:300;font-style:italic;max-width:880px;margin:26px auto 0;line-height:1.32;color:#fbf3e1}
+.closing .sig{margin-top:34px;font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-light)}
+footer{background:var(--ink);color:#9c917c;text-align:center;padding:30px;font-size:11px;letter-spacing:.16em;
+  text-transform:uppercase;border-top:1px solid rgba(201,163,94,.18)}
+
+/* ---------- REVEAL ---------- */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .9s ease,transform .9s ease}
+.reveal.in{opacity:1;transform:none}
+
+@media(max-width:860px){
+  .two-col,.tracks{grid-template-columns:1fr;gap:28px}
+  .stat-grid{grid-template-columns:1fr 1fr}
+  .soul-grid{grid-template-columns:1fr 1fr}
+  section{padding:68px 0}
+  .deliv{grid-template-columns:1fr;text-align:left;gap:8px}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-inner">
+    <div class="kicker">A Private Luxury Members Club · Puerto Portals, Mallorca</div>
+    <h1>HRVN</h1>
+    <div class="role">Haven — for the human behind the success</div>
+    <p class="tagline">"A safe harbour where life is in tune, where you meet the people who truly recognise you, where you come back to life, and where you are called back to your power and your sense of purpose."</p>
+    <div class="meta">
+      <span>600 m² · Puerto Portals, Mallorca</span>
+      <span>Target Opening — To Be Discussed</span>
+      <span>5 Founders &amp; Core Team · 12 Operational Areas</span>
+    </div>
+  </div>
+  <div class="rainbow-bar" style="position:absolute;bottom:0;left:0;z-index:3"></div>
+  <div class="scrolldown">Scroll<span></span></div>
+</header>
+
+<!-- ---------- VISION & MISSION ---------- -->
+<section class="vm">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="kicker">Why We Exist</div>
+      <h2>Vision &amp; Mission</h2>
+      <div class="divider" style="margin-top:18px"></div>
+    </div>
+    <div class="thesis reveal" style="margin-bottom:48px">
+      "Successful people who have relocated to Mallorca often have everything money can buy
+      but feel disconnected. HRVN creates the belonging layer that money alone cannot provide."
+    </div>
+    <div class="two-col">
+      <div class="panel reveal">
+        <div class="panel-sub">Vision</div>
+        <h3>A haven for the human behind the success.</h3>
+        <p>A private luxury members club in Puerto Portals — a handpicked community of global
+        families built on real friendship, shared experience and Interest Circles, where members
+        are finally seen, find their people, and reconnect with purpose.</p>
+      </div>
+      <div class="panel reveal">
+        <div class="panel-sub">Mission</div>
+        <h3>Curate belonging, not membership.</h3>
+        <p>Money alone doesn't open the door — admission is by conversation, recommendation and a
+        real vote. Accepted members then pay a membership fee. You earn the room; you don't simply
+        buy your way in.</p>
+      </div>
+    </div>
+    <div class="chips" style="justify-content:center;margin-top:36px">
+      <span class="chip no">NOT a networking club</span>
+      <span class="chip no">NOT a gentleman's club</span>
+      <span class="chip no">NOT a Soho House</span>
+      <span class="chip no">NOT a mass-market hub</span>
+      <span class="chip yes">IS a private luxury members club</span>
+      <span class="chip yes">IS handpicked &amp; curated</span>
+      <span class="chip yes">IS membership by fee &amp; invitation</span>
+      <span class="chip yes">IS real friendship &amp; shared experience</span>
+    </div>
+  </div>
+</section>
+
+<!-- ---------- NUMBERS ---------- -->
+<section class="stats">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="kicker">The Project in Numbers</div>
+      <h2>Where We Stand Today</h2>
+      <div class="divider" style="margin-top:18px"></div>
+      <p>As of June 18, 2026</p>
+    </div>
+    <div class="stat-grid">
+      <div class="stat reveal"><div class="num" data-target="600" data-suffix="">0</div><div class="lbl">m² Total Space</div><div class="sub">Puerto Portals, Mallorca</div></div>
+      <div class="stat reveal"><div class="num" data-target="9" data-suffix="">0</div><div class="lbl">Interest Circles</div><div class="sub">curated — the core product</div></div>
+      <div class="stat reveal"><div class="num" data-target="4" data-suffix="">0</div><div class="lbl">Brand Frequencies</div><div class="sub">Harmony · Resonance · Vitality · Nobility</div></div>
+      <div class="stat reveal"><div class="num" data-target="12" data-suffix="">0</div><div class="lbl">Operational Areas</div><div class="sub">licensing to finance — fully mapped</div></div>
+      <div class="stat reveal"><div class="num" data-target="50" data-suffix="+">0</div><div class="lbl">Founding Members Target</div><div class="sub">in place before opening day</div></div>
+      <div class="stat reveal"><div class="num" data-target="2" data-suffix="">0</div><div class="lbl">Recommenders Required</div><div class="sub">per applicant — the curation barrier</div></div>
+      <div class="stat reveal"><div class="num" data-target="3" data-suffix="">0</div><div class="lbl">Membership Tiers, Max</div><div class="sub">Founder / Full / Summer — kept simple</div></div>
+      <div class="stat reveal"><div class="num" data-target="5" data-suffix="">0</div><div class="lbl">Founders &amp; Core Team</div><div class="sub">Olaf, Carmen, Marta, Aleksandra, Mauro</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ---------- HRVN SOUL ---------- -->
+<section class="soul">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="kicker">HRVN = Haven</div>
+      <h2>The Brand Soul</h2>
+      <div class="divider" style="margin-top:18px"></div>
+      <p>Internal compass for the team — not yet the external pitch.</p>
+    </div>
+    <div class="soul-grid">
+      <div class="soul-card reveal">
+        <div class="letter">H</div><h4>Harmony</h4>
+        <p>Coherence, not noise.</p>
+        <div class="sline">The nervous system settles the moment a member walks in.</div>
+      </div>
+      <div class="soul-card reveal">
+        <div class="letter">R</div><h4>Resonance</h4>
+        <p>Recognition between people who truly meet.</p>
+        <div class="sline">Not contacts — people who move you.</div>
+      </div>
+      <div class="soul-card reveal">
+        <div class="letter">V</div><h4>Vitality</h4>
+        <p>The aliveness success often costs.</p>
+        <div class="sline">Play, movement, joy and creativity, given back.</div>
+      </div>
+      <div class="soul-card reveal">
+        <div class="letter">N</div><h4>Nobility</h4>
+        <p>Excellence and dignity.</p>
+        <div class="sline">Members treated with reverence — never as a wallet.</div>
+      </div>
+    </div>
+    <div class="arc reveal">Harmony sets the field → Resonance connects the people → Vitality brings them alive → Nobility lifts them higher.</div>
+  </div>
+</section>
+
+<!-- ---------- TEAM MAP ---------- -->
+<section class="team">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="kicker">Who Builds This</div>
+      <h2>Team Map — Strengths &amp; Human Design</h2>
+      <div class="divider" style="margin-top:18px"></div>
+      <p>Everyone working in their zone of genius, not against it.</p>
+    </div>
+    <div class="team-grid">
+
+      <div class="team-card reveal">
+        <h3>Olaf Larsen</h3>
+        <div class="t-role">Founder — Vision &amp; Decisions</div>
+        <div class="t-section">
+          <div class="t-label">CliftonStrengths</div>
+          <div class="chips"><span class="chip">Ideation</span><span class="chip">Strategic</span><span class="chip">Self-Assurance</span><span class="chip">Analytical</span><span class="chip">Significance</span></div>
+        </div>
+        <div class="t-section">
+          <div class="t-label">Human Design</div>
+          <div class="hd-line">Manifesting Generator · Emotional Authority · 6/2 Role Model / Hermit</div>
+        </div>
+        <div class="t-contrib">Vision, business model, investor relations, the final decisive yes.</div>
+      </div>
+
+      <div class="team-card reveal">
+        <h3>Carmen Serban</h3>
+        <div class="t-role">Founder — Member Experience &amp; Community</div>
+        <div class="t-section">
+          <div class="t-label">CliftonStrengths</div>
+          <div class="chips"><span class="chip">Individualization</span><span class="chip">Relator</span><span class="chip">Empathy</span><span class="chip">Connectedness</span><span class="chip">Discipline</span></div>
+        </div>
+        <div class="t-section">
+          <div class="t-label">Human Design</div>
+          <div class="hd-line">Generator · Sacral Authority · 2/4 Hermit / Opportunist</div>
+        </div>
+        <div class="t-contrib">Holds the relational and spiritual soul of the club; onboarding and trust.</div>
+      </div>
+
+      <div class="team-card reveal">
+        <h3>Marta Bodych</h3>
+        <div class="t-role">Operations Lead — PM &amp; Team</div>
+        <div class="t-section">
+          <div class="t-label">CliftonStrengths</div>
+          <div class="chips"><span class="chip">Individualization</span><span class="chip">Strategic</span><span class="chip">Ideation</span><span class="chip">Command</span><span class="chip">Self-Assurance</span></div>
+        </div>
+        <div class="t-section">
+          <div class="t-label">Human Design</div>
+          <div class="hd-line">Manifesting Generator · Sacral Authority · 3/5 Martyr / Heretic</div>
+        </div>
+        <div class="t-contrib">Gets things built and moving — Licensing, Operations, People &amp; Recruiting.</div>
+      </div>
+
+      <div class="team-card reveal">
+        <h3>Aleksandra Goździelewska</h3>
+        <div class="t-role">Partnerships, Events &amp; Marketing</div>
+        <div class="t-section">
+          <div class="t-label">CliftonStrengths</div>
+          <div class="chips"><span class="chip">Strategic</span><span class="chip">Woo</span><span class="chip">Maximizer</span><span class="chip">Connectedness</span><span class="chip">Arranger</span></div>
+        </div>
+        <div class="t-section">
+          <div class="t-label">Human Design</div>
+          <div class="hd-line">Generator · Emotional (Solar Plexus) Authority · 4/6 Opportunist / Role Model</div>
+        </div>
+        <div class="t-contrib">The connector and quality-holder — builds the belonging layer the club sits on.</div>
+      </div>
+
+      <div class="team-card reveal">
+        <h3>Mauro</h3>
+        <div class="t-role">Membership Recruitment &amp; Network Activation</div>
+        <div class="t-section">
+          <div class="t-label">CliftonStrengths</div>
+          <div class="chips tbd">Profile pending</div>
+        </div>
+        <div class="t-section">
+          <div class="t-label">Human Design</div>
+          <div class="hd-line tbd">Pending</div>
+        </div>
+        <div class="t-contrib">The initial pull — activates network and pipeline for the founding cohort.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ---------- NEXT STEPS ---------- -->
+<section class="next">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="kicker">Critical Path</div>
+      <h2>What Needs to Happen Next</h2>
+      <div class="divider" style="margin-top:18px"></div>
+      <p>Sequence over speed — lock the foundation first, then build a coherent plan.</p>
+    </div>
+
+    <div class="panel deliv-panel reveal">
+      <div class="deliv">
+        <div class="dmark">✦</div>
+        <div><div class="dname">Lock the Co-Founding Team</div><div class="ddesc">Contracts, compensation, clearly defined roles and a clear division of work — agreed and signed before anything else moves.</div></div>
+        <div class="darea critical">Now</div>
+      </div>
+      <div class="deliv">
+        <div class="dmark">✦</div>
+        <div><div class="dname">Set a Realistic Opening Date</div><div class="ddesc">Not rushed. A date the founders can be in Mallorca for, that lets us deliver real quality — better later and excellent than early and compromised.</div></div>
+        <div class="darea critical">Now</div>
+      </div>
+      <div class="deliv">
+        <div class="dmark">✦</div>
+        <div><div class="dname">Build the Business Plan</div><div class="ddesc">A coherent plan with the core concept and values at its centre — the foundation everything else hangs on.</div></div>
+        <div class="darea critical">Now</div>
+      </div>
+      <div class="deliv">
+        <div class="dmark">✦</div>
+        <div><div class="dname">Set Up the Project in Claude Code</div><div class="ddesc">One shared workspace for the whole build, set up with Johan — tasks, docs and decisions in one place.</div></div>
+        <div class="darea pending">Next</div>
+      </div>
+      <div class="deliv">
+        <div class="dmark">✦</div>
+        <div><div class="dname">Decide the Interior Designer</div><div class="ddesc">Choose who shapes the physical space and holds the design direction.</div></div>
+        <div class="darea pending">Next</div>
+      </div>
+      <div class="deliv">
+        <div class="dmark">✦</div>
+        <div><div class="dname">GM / Club Director</div><div class="ddesc">A strong on-the-ground lead matters eventually — but it isn't needed yet, and isn't critical at this stage.</div></div>
+        <div class="darea gap">Later</div>
+      </div>
+      <div class="deliv">
+        <div class="dmark">✦</div>
+        <div><div class="dname">Event Calendar</div><div class="ddesc">Anchor events and the soft-opening format can wait — not crucial if the opening date moves.</div></div>
+        <div class="darea gap">Later</div>
+      </div>
+    </div>
+
+    <div class="tracks">
+      <div class="track reveal">
+        <div class="tk">Lock First · The Foundation</div>
+        <h4>Agree</h4>
+        <ul>
+          <li>Co-founding team — contracts &amp; compensation</li>
+          <li>Defined roles &amp; division of work</li>
+          <li>A realistic, not-rushed opening date</li>
+          <li>Founders present in Mallorca to deliver quality</li>
+        </ul>
+      </div>
+      <div class="track reveal">
+        <div class="tk">Then Build · In Sequence</div>
+        <h4>Execute</h4>
+        <ul>
+          <li>Business plan — core concept &amp; values</li>
+          <li>Project set up in Claude Code with Johan</li>
+          <li>Interior designer decision</li>
+          <li>Event calendar — later, once the date is set</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ---------- CLOSING ---------- -->
+<section class="closing">
+  <div class="wrap">
+    <div class="kicker">The Standard</div>
+    <blockquote>"We don't rush the harbour. We get the foundation right, then open when it's truly ready — and excellent."</blockquote>
+    <div class="sig">HRVN — Puerto Portals, Mallorca</div>
+  </div>
+</section>
+
+<footer>HRVN — Internal Strategy Overview · Prepared by Aleksandra Goździelewska · June 2026</footer>
+
+<script>
+  // Reveal on scroll
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  },{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  // Animated counters
+  const countEls = document.querySelectorAll('.num[data-target]');
+  const cio = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(!e.isIntersecting) return;
+      const el=e.target, target=+el.dataset.target, suffix=el.dataset.suffix||'';
+      const dur=1600, t0=performance.now();
+      const fmt=n=>n.toLocaleString('en-US');
+      const tick=now=>{
+        const p=Math.min((now-t0)/dur,1);
+        const eased=1-Math.pow(1-p,3);
+        el.textContent=fmt(Math.round(target*eased))+suffix;
+        if(p<1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+      cio.unobserve(el);
+    });
+  },{threshold:.5});
+  countEls.forEach(el=>cio.observe(el));
+</script>
+
+</body>
+</html>
